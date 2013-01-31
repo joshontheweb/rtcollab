@@ -23,7 +23,7 @@ var server = http.createServer(function(req, res) {
 server.listen(8000);
 console.log('Oh Hiya');
 
-var io = require('socket.io').listen(80);
+var io = require('socket.io').listen(3000);
 
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
