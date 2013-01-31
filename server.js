@@ -21,6 +21,15 @@ var server = http.createServer(function(req, res) {
 });
 
 server.listen(8000);
-console.log('Listening on port: 8000');
+console.log('Oh Hiya');
+
+var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
 
 
